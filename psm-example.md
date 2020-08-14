@@ -199,7 +199,9 @@ print(mean_diff_matched)
 
     ## [1] 1246.806
 
-*observe that for matched pairs the impact of the labor training intervention is a net gain of $1246 but without matching we obtained that the trained group had a net loss of income of 635 dollars*
+*observe that, for matched pairs, the impact of the labor training intervention is a net gain of $1246*
+
+*previously (without matching) we got that the trained group had a net income loss of $635!!*
 
 *this illustrates the importance of matching in controlling for confounders!*
 
