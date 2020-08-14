@@ -1,6 +1,6 @@
 Inferring Causality using Propensity Score Matching!
 ================
-cesnyah
+Cesar Yahia
 August 12, 2020
 
 ### Overview
