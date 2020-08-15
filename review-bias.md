@@ -51,7 +51,7 @@ In what follows, additional description on implementing matching is provided. Th
 
 The lalonde data in the Matchit library is used. In this case, the objective is to analyze the impact of labor training on income, where some confounding variables (such as age, education, marital status) influence both who gets training and income. We can control for those confounding variables by matching to isolate the impact of labor training.
 
-### Load Data
+#### Load Data
 
 load the lalonde data is in the MatchIt library
 
@@ -60,7 +60,7 @@ data(lalonde, package = 'MatchIt')
 View(lalonde)
 ```
 
-### Data Analysis
+#### Data Analysis
 
 First get covariates and create table one
 
@@ -103,7 +103,7 @@ print(mean_diff)
 
     ## [1] -635.0262
 
-### Greedy Matching
+#### Greedy Matching
 
 Implement greedy matching using the Mahalanobis distance. The Mahalanobis distance between covariates *X*<sub>*i*</sub> for subject *i* and covariates *X*<sub>*j*</sub> for subject *j* is given by $d=\\sqrt{(X\_{i} - X\_{j})^{T} S^{-1} (X\_{i} - X\_{j})}$, where *S* is the covariance matrix associated with the covariates.
 
@@ -146,10 +146,10 @@ t.test(diffinc_m)
     ##  One Sample t-test
     ## 
     ## data:  diffinc_m
-    ## t = 1.2441, df = 184, p-value = 0.215
+    ## t = 1.2493, df = 184, p-value = 0.2131
     ## alternative hypothesis: true mean is not equal to 0
     ## 95 percent confidence interval:
-    ##  -481.7302 2126.4948
+    ##  -476.3748 2121.1394
     ## sample estimates:
     ## mean of x 
     ##  822.3823
