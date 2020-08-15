@@ -159,16 +159,18 @@ t.test(inc_trt_m, inc_con_m, paired=TRUE)
     ##  Paired t-test
     ## 
     ## data:  inc_trt_m and inc_con_m
-    ## t = 1.2459, df = 184, p-value = 0.2144
+    ## t = 1.269, df = 184, p-value = 0.206
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  -479.9226 2124.6872
+    ##  -463.8823 2136.3164
     ## sample estimates:
     ## mean of the differences 
-    ##                822.3823
+    ##                 836.217
 
-*observe that, for matched pairs, the impact of the labor training intervention is a net gain of $822*
+*observe that, for matched pairs, the impact of the labor training intervention is a net gain of $822.*
 
 *previously (without matching) we got that the trained group had a net income loss of $635!!*
 
 *this illustrates the importance of matching in controlling for confounders!*
+
+Note however that the p-value is high indicating that the difference in means between treated and control groups is not siginificant.
