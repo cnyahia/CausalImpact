@@ -53,12 +53,25 @@ The lalonde data in the Matchit library is used. In this case, the objective is 
 
 #### Load Data
 
-load the lalonde data is in the MatchIt library
+Load the lalonde data is in the MatchIt library. Treat is a binary variable that takes the value 1 if the subject received labor training. The variable re78 is the outcome of interest representing income. All other variables are confounding variables.
 
 ``` r
 data(lalonde, package = 'MatchIt')
-View(lalonde)
+# View(lalonde)
+print(head(lalonde, 10))
 ```
+
+    ##       treat age educ black hispan married nodegree re74 re75       re78
+    ## NSW1      1  37   11     1      0       1        1    0    0  9930.0460
+    ## NSW2      1  22    9     0      1       0        1    0    0  3595.8940
+    ## NSW3      1  30   12     1      0       0        0    0    0 24909.4500
+    ## NSW4      1  27   11     1      0       0        1    0    0  7506.1460
+    ## NSW5      1  33    8     1      0       0        1    0    0   289.7899
+    ## NSW6      1  22    9     1      0       0        1    0    0  4056.4940
+    ## NSW7      1  23   12     1      0       0        0    0    0     0.0000
+    ## NSW8      1  32   11     1      0       0        1    0    0  8472.1580
+    ## NSW9      1  22   16     1      0       0        0    0    0  2164.0220
+    ## NSW10     1  33   12     0      0       1        0    0    0 12418.0700
 
 #### Data Analysis
 
@@ -146,10 +159,10 @@ t.test(diffinc_m)
     ##  One Sample t-test
     ## 
     ## data:  diffinc_m
-    ## t = 1.2493, df = 184, p-value = 0.2131
+    ## t = 1.2568, df = 184, p-value = 0.2104
     ## alternative hypothesis: true mean is not equal to 0
     ## 95 percent confidence interval:
-    ##  -476.3748 2121.1394
+    ##  -468.592 2113.357
     ## sample estimates:
     ## mean of x 
     ##  822.3823
