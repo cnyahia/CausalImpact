@@ -7,3 +7,4 @@ This repository includes methods for determining the causal impact of an interve
   Propensity score matching (psm) controls for confounding variables such as age, race, marital status, etc.
   Precisely, psm creates a balance between the covariate distribution in the treated group and the distribution in the control group.
   Thus, since both groups would have similar covariate distributions, the difference in outcome across groups represents the causal impact (as opposed to impact of confounding variables on outcome).
+  * **review-bias.md**: discusses inequity in single-blind reviews and how to evaluate an opt-in double-blind intervention. Implements vanilla matching.
