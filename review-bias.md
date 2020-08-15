@@ -11,7 +11,7 @@ The single-blind review process is biased. Reviews are influenced by the author�
 
 ### Randomized Experiment Approach
 
-To assess the efficacy of double-blind reviews, we can run a *randomized* experiment where randomly selected papers are given double-blind reviews (the remaining reviews are single-blind). Then, we can use a t-test to evaluate the difference in review scores between the two groups (double and single). We can also stratify the authors in each group according to factors such as the author's country of origin/academic rank/gender and compare the scores between double/single within each stratified class.
+To assess the efficacy of double-blind reviews, we can run a *randomized* experiment where randomly selected papers are given double-blind reviews (the remaining reviews are single-blind). Then, we can use a *two sample t-test (independent samples)* to evaluate the difference in review scores between the two groups (double and single). We can also stratify the authors in each group according to factors such as the author's country of origin/academic rank/gender and compare the scores between double/single within each stratified class.
 
 #### Assumptions:
 
@@ -33,7 +33,7 @@ To avoid challenges resulting from the randomized assignment of double-blind rev
 
 We can first implement *matching* to control for confounders and then infer the causal impact of the double-blind review process.
 
-In brief, for every subject in the double-blind group, matching finds a corresponding subject in the single-blind group that has similar characteristics. We refer to those characteristics as covariates/confounders (these covariates can be the author’s country of origin/academic rank/gender). Then, we create a list of matched pairs, and we infer the causal impact of double-blind reviews by applying a *paired t-test* on the difference between the double-blind review score and the single-blind review score.
+In brief, for every subject in the double-blind group, matching finds a corresponding subject in the single-blind group that has similar characteristics. We refer to those characteristics as covariates/confounders (these covariates can be the author’s country of origin/academic rank/gender). Then, we create a list of matched pairs, and we infer the causal impact of double-blind reviews by applying a *paired t-test* between the double-blind review score and the single-blind review score.
 
 To find the impact of double-blind reviews on subsets of authors with the same feature (e.g., all authors with the same country of origin), we can isolate the matched pairs that have the desired feature and then infer the causal impact for that specific group.
 
@@ -150,22 +150,22 @@ Let's do some outcome analysis
 ``` r
 inc_trt_m <- matched$re78[matched$treat==1]
 inc_con_m <- matched$re78[matched$treat==0]
-diffinc_m <- inc_trt_m - inc_con_m
+# diffinc_m <- inc_trt_m - inc_con_m
 # paired t-test
-t.test(diffinc_m)
+t.test(inc_trt_m, inc_con_m, paired=TRUE)
 ```
 
     ## 
-    ##  One Sample t-test
+    ##  Paired t-test
     ## 
-    ## data:  diffinc_m
-    ## t = 1.2524, df = 184, p-value = 0.212
-    ## alternative hypothesis: true mean is not equal to 0
+    ## data:  inc_trt_m and inc_con_m
+    ## t = 1.2459, df = 184, p-value = 0.2144
+    ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  -473.1173 2117.8819
+    ##  -479.9226 2124.6872
     ## sample estimates:
-    ## mean of x 
-    ##  822.3823
+    ## mean of the differences 
+    ##                822.3823
 
 *observe that, for matched pairs, the impact of the labor training intervention is a net gain of $822*
 
