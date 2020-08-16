@@ -159,13 +159,13 @@ t.test(inc_trt_m, inc_con_m, paired=TRUE)
     ##  Paired t-test
     ## 
     ## data:  inc_trt_m and inc_con_m
-    ## t = 1.269, df = 184, p-value = 0.206
+    ## t = 1.2523, df = 184, p-value = 0.212
     ## alternative hypothesis: true difference in means is not equal to 0
     ## 95 percent confidence interval:
-    ##  -463.8823 2136.3164
+    ##  -473.2129 2117.9775
     ## sample estimates:
     ## mean of the differences 
-    ##                 836.217
+    ##                822.3823
 
 *observe that, for matched pairs, the impact of the labor training intervention is a net gain of $822.*
 
